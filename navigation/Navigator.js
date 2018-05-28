@@ -1,38 +1,59 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { Platform, ScrollView} from 'react-native';
+import { createStackNavigator, createDrawerNavigator, SafeAreaView, DrawerItems, Text } from 'react-navigation';
 
 import Splash from '../components/Util/Splash';
 import Home from '../components/Home/Home';
 import DrawerOptions from './DrawerOptions';
 
-export const Drawer = DrawerNavigator(
+export const Navigator = createDrawerNavigator(
   {
     Home: {
-      screen: Home
+      screen: Home,
+      navigationOptions: {
+        drawerLabel: 'Dashboard',
+      },
     },
   },
   {
-    contentComponent: (props) => <Drawer {...props} />,
-    drawerOpenRoute: 'DrawerOpen',
-    drawerCloseRoute: 'DrawerClose',
-    drawerToggleRoute: 'DrawerToggle'
+    initialRouteName: 'Home',
+    contentComponent: (props) => <CustomDrawerContentComponent {...props} />,
+    contentOptions: {
+      activeTintColor: '#e91e63',
+      itemsContainerStyle: {
+        marginVertical: 0,
+      },
+      iconContainerStyle: {
+        opacity: 1
+      }
+    },
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
   }
 );
 
-export const Navigator = StackNavigator(
-  {
-    Splash: {
-      screen: Splash
-    },
-    Drawer: {
-      screen: Drawer
-    },
-  },
-  {
-    headerMode: 'none',
-    cardStyle: {
-      paddingTop: Platform.OS === 'ios' ? 0 : 0
-    }
-  }
+const CustomDrawerContentComponent = (props) => (
+  <ScrollView>
+    <SafeAreaView style={{flex: 1}} forceInset={{ top: 'always', horizontal: 'never' }}>
+      <DrawerItems {...props} />
+    </SafeAreaView>
+  </ScrollView>
 );
+
+// export const Navigator = createStackNavigator(
+//   {
+//     Splash: {
+//       screen: Splash
+//     },
+//     Drawer: {
+//       screen: Drawer
+//     },
+//   },
+// );

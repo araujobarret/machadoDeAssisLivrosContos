@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import nav from './nav';
+
+import files from './files';
 
 const root = combineReducers({
-  nav,
+  files,
 });
 
 export default root;
