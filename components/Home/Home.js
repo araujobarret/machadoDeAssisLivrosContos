@@ -3,16 +3,9 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 class Home extends React.Component {
   static navigationOptions = {
-    title: 'Home',
-    headerStyle: {
-      backgroundColor: '#f4511e',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-  };
-  
+    drawerLabel: 'Home',
+  }
+
   render() {
     const { navigation } = this.props
     return (
@@ -22,6 +15,13 @@ class Home extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});
 
 
 export default Home;

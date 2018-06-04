@@ -1,13 +1,15 @@
 import React from 'react';
 import { Dimensions, View, Image, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
 
 
 class Splash extends React.Component {
+  static navigationOptions = {
+    headerStyle: { height: 0 }
+  };
+
   startLoading() {
     setTimeout(() => {
-      this.props.navigation.navigate('Home');
+      this.props.loadingStop();
     }, 1000);
   }
 
@@ -28,7 +30,6 @@ class Splash extends React.Component {
   }
 }
 
-
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
 
@@ -43,4 +44,4 @@ const SplashStyles = {
 };
 
 
-export default connect()(Splash);
+export default Splash;

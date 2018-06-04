@@ -1,41 +1,57 @@
 import React from 'react';
-import { Platform, ScrollView} from 'react-native';
+import { Button, Platform, ScrollView, View } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, SafeAreaView, DrawerItems, Text } from 'react-navigation';
 
+import { DrawerActions, NavigationActions } from 'react-navigation';
 import Splash from '../components/Util/Splash';
 import Home from '../components/Home/Home';
 import DrawerOptions from './DrawerOptions';
 
-export const Navigator = createDrawerNavigator(
+const menu = createDrawerNavigator(
   {
     Home: {
-      screen: Home,
-      navigationOptions: {
-        drawerLabel: 'Dashboard',
-      },
-    },
+      screen: Home
+    }
+  }
+);
+
+export const Navigator = createStackNavigator(
+  {
+    Home: {
+      screen: menu
+    }
   },
   {
-    initialRouteName: 'Home',
-    contentComponent: (props) => <CustomDrawerContentComponent {...props} />,
-    contentOptions: {
-      activeTintColor: '#e91e63',
-      itemsContainerStyle: {
-        marginVertical: 0,
-      },
-      iconContainerStyle: {
-        opacity: 1
-      }
-    },
-    navigationOptions: {
+    navigationOptions: ({navigation}) => ({
+      headerTitle: 'Dashboard',
       headerStyle: {
         backgroundColor: '#f4511e',
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: 'bold',
+        textAlign: 'center',
+        flex: 1
       },
-    },
+      headerLeft: (
+        <View style={{ marginLeft: 10 }}>
+          <Button
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+            title="Info"
+            color="#ccc"
+          />
+        </View>
+      ),
+      headerRight: (
+        <View style={{ marginRight: 10 }}>
+          <Button
+            onPress={() => null}
+            title="Info"
+            color="#ccc"
+          />
+        </View>
+      ),
+    }),
   }
 );
 
@@ -46,14 +62,3 @@ const CustomDrawerContentComponent = (props) => (
     </SafeAreaView>
   </ScrollView>
 );
-
-// export const Navigator = createStackNavigator(
-//   {
-//     Splash: {
-//       screen: Splash
-//     },
-//     Drawer: {
-//       screen: Drawer
-//     },
-//   },
-// );
