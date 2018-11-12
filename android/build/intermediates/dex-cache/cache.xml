@@ -147,6 +147,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/MachadoDeAssis/react-native-fs/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="02bffedf0cc9fd5749632eaa4275d06a0caff7bd">
+        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/MachadoDeAssis-react-native-fs-unspecified_9101e7d62e1598c19b3ae28ba678b9b35019af7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"

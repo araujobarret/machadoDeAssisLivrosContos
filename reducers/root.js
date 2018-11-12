@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import files from './files';
+import books from './books';
 
 const root = combineReducers({
-  files,
+  books,
 });
 
 export default root;

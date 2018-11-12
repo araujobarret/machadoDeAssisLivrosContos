@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
+import "unorm";
 
 import { Navigator } from './navigation/Navigator';
 import Splash from './components/Util/Splash';

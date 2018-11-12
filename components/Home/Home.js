@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
+import List from '../List/List'
+
 class Home extends React.Component {
   static navigationOptions = {
     drawerLabel: 'Home',
@@ -10,7 +12,7 @@ class Home extends React.Component {
     const { navigation } = this.props
     return (
       <View>
-        <Text>Home</Text>
+        <List />
       </View>
     )
   }

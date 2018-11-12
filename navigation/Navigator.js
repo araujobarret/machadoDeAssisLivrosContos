@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Platform, ScrollView, View, TouchableHighlight } from 'react-native';
+import { Button, Image, Platform, ScrollView, View, TouchableOpacity } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, SafeAreaView, DrawerItems, Text } from 'react-navigation';
 
 import { DrawerActions, NavigationActions } from 'react-navigation';
@@ -34,13 +34,12 @@ export const Navigator = createStackNavigator(
         flex: 1
       },
       headerLeft: (
-        <TouchableHighlight
-          underlayColor="#FFFFFF"
+        <TouchableOpacity
           style={{ marginLeft: 10, paddingVertical: 10 }}
           onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
         >
           <Image source={require('../assets/imgs/menu.png')} resizeMode="contain" style={{ width: 24 }}/>
-        </TouchableHighlight>
+        </TouchableOpacity>
       ),
       headerRight: (
         <View style={{ marginRight: 10 }} />
