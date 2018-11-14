@@ -5,21 +5,19 @@ import { createStackNavigator, createDrawerNavigator, SafeAreaView, DrawerItems,
 import { DrawerActions, NavigationActions } from 'react-navigation';
 import Splash from '../components/Util/Splash';
 import Home from '../components/Home/Home';
+import BookNavigator from '../components/Book/BookNavigator';
 import DrawerOptions from './DrawerOptions';
 
 const menu = createDrawerNavigator(
   {
-    Home: {
-      screen: Home
-    }
+    Home: { screen: Home }
   }
 );
 
 export const Navigator = createStackNavigator(
   {
-    Home: {
-      screen: menu
-    }
+    Home: { screen: menu },
+    BookNavigator: { screen: BookNavigator }
   },
   {
     navigationOptions: ({navigation}) => ({
@@ -48,10 +46,10 @@ export const Navigator = createStackNavigator(
   }
 );
 
-const CustomDrawerContentComponent = (props) => (
-  <ScrollView>
-    <SafeAreaView style={{flex: 1}} forceInset={{ top: 'always', horizontal: 'never' }}>
-      <DrawerItems {...props} />
-    </SafeAreaView>
-  </ScrollView>
-);
+// const CustomDrawerContentComponent = (props) => (
+//   <ScrollView>
+//     <SafeAreaView style={{flex: 1}} forceInset={{ top: 'always', horizontal: 'never' }}>
+//       <DrawerItems {...props} />
+//     </SafeAreaView>
+//   </ScrollView>
+// );
