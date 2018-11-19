@@ -26,12 +26,4 @@ describe('Testing App component', () => {
     wrapper.setState({ isLoading: false});
     expect(wrapper.contains(<Navigator/>)).toBe(true);
   });
-
-  it('should wait the Splash to trigger the props loadingStop() and render the Navigator ', async () => {
-    wrapper.setState({ isLoading: true});
-    wrapper.find('Splash').simulate('loadingStop');
-    wrapper.update();
-    await utils.sleep(2000);
-    expect(wrapper.contains(<Navigator/>)).toBe(true);
-  });
 });

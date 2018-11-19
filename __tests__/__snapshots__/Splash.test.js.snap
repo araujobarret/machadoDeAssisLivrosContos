@@ -20,7 +20,11 @@ ShallowWrapper {
       "children": <Image
         onLoad={[Function]}
         resizeMode="cover"
-        source={1}
+        source={
+          Object {
+            "process": [Function],
+          }
+        }
         style={
           Object {
             "height": 1334,
@@ -40,7 +44,9 @@ ShallowWrapper {
       "props": Object {
         "onLoad": [Function],
         "resizeMode": "cover",
-        "source": 1,
+        "source": Object {
+          "process": [Function],
+        },
         "style": Object {
           "height": 1334,
           "width": 750,
@@ -61,7 +67,11 @@ ShallowWrapper {
         "children": <Image
           onLoad={[Function]}
           resizeMode="cover"
-          source={1}
+          source={
+            Object {
+              "process": [Function],
+            }
+          }
           style={
             Object {
               "height": 1334,
@@ -81,7 +91,9 @@ ShallowWrapper {
         "props": Object {
           "onLoad": [Function],
           "resizeMode": "cover",
-          "source": 1,
+          "source": Object {
+            "process": [Function],
+          },
           "style": Object {
             "height": 1334,
             "width": 750,

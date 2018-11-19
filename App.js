@@ -16,7 +16,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log('props app', this.props)
     return (
       <Provider store={store}>
         { this.state.isLoading ? <Splash loadingStop={() => this.setState({ isLoading: false })}/> : <Navigator /> }

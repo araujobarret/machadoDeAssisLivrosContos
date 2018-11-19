@@ -123,7 +123,6 @@ class List extends React.Component {
   }
 
   componentDidMount () {
-    console.log('props', this.props.navigation);
     this.props.dispatch(getBooks(Books));
   }
 
@@ -137,14 +136,13 @@ class List extends React.Component {
 
   _renderItem = ({ item, index }) => (
     <Animated.View>
-      <BookDescription info={item[1]} navigation={this.props.navigation} book={{}}/>
+      <BookDescription info={item[1]} navigation={this.props.navigation} book={this.state.books.books.get(item[1].key)}/>
     </Animated.View>
   )
 
   _keyExtractor = (item, index) => item[1].key;
 
   render() {
-    console.log('re-rendered')
     return (
       <FlatList
         styles={ style.list }
