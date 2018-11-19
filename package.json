@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-preset-react-native": "^4.0.1",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "chai": "^4.1.2",
     "enzyme": "^3.3.0",
@@ -23,7 +24,11 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": ["node_modules/(?!react-native|native-base|react-navigation|react-native-fabric)"],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js"
+    }
   },
   "dependencies": {
     "axios": "^0.18.0",

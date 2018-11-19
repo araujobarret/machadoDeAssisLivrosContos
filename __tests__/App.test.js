@@ -32,7 +32,6 @@ describe('Testing App component', () => {
     wrapper.find('Splash').simulate('loadingStop');
     wrapper.update();
     await utils.sleep(2000);
-    console.log('Wrapper', wrapper.props())
     expect(wrapper.contains(<Navigator/>)).toBe(true);
   });
 });
