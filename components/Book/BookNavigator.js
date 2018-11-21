@@ -13,15 +13,16 @@ class BookNavigator extends React.Component {
     Books.addBook(book);
     const currentBlock = props.navigation.state.params.block ? props.navigation.state.params.block : 0;
     const navigationRes = Books.navigate(book.key, currentBlock);
+    const { blocks, nextBlock, previousBlock } = navigationRes
     console.log('navigate', navigationRes);
 
     this.state = {
       isLoading: true,
       book,
-      previousBlock: navigationRes.initialBlock === 0 ? null : getNextHeader(book, currentBlock, true),
+      previousBlock,
       currentBlock,
-      nextBlock: navigationRes.finalBlock === book.src.blocks.length - 1 ? null : getNextHeader(book, currentBlock) + 1,
-      blocks: navigationRes.blocks
+      nextBlock,
+      blocks,
     };
   }
 
@@ -33,23 +34,32 @@ class BookNavigator extends React.Component {
 
   _next () {
     this.setState({ isLoading: true}, () => {
-      let { currentBlock, previousBlock, nextBlock } = this.state;
-      currentBlock = nextBlock;
-      previousBlock = getNextHeader(this.state.book, currentBlock, true);
+      let currentBlock = this.state.nextBlock;
       const navigationRes = Books.navigate(this.state.book.key, currentBlock);
-      nextBlock: navigationRes.finalBlock === this.state.book.src.blocks.length - 1 ? null : getNextHeader(this.state.book, currentBlock) + 1;
-      this.setState({ isLoading: false, currentBlock, previousBlock, nextBlock, blocks: navigationRes.blocks }, () => {
-        const copy = this.state;
-        delete copy.book;
-        console.log('copy', copy);
-        delete copy.blocks;        
-        console.log('copy', copy);
+      const { previousBlock, nextBlock } = navigationRes
+      this.setState({
+        isLoading: false,
+        currentBlock,
+        previousBlock,
+        nextBlock,
+        blocks: navigationRes.blocks
       });
     });
   }
 
   _back () {
-    console.log('BACK');
+    this.setState({ isLoading: true}, () => {
+      let currentBlock = this.state.previousBlock - 1;
+      const navigationRes = Books.navigate(this.state.book.key, currentBlock);
+      const { previousBlock, nextBlock } = navigationRes
+      this.setState({
+        isLoading: false,
+        currentBlock,
+        previousBlock,
+        nextBlock,
+        blocks: navigationRes.blocks
+      });
+    });
   }
 
   _renderText (item) {
@@ -111,7 +121,7 @@ class BookNavigator extends React.Component {
         { !this.state.isLoading ? (
             <View>
               <FlatList
-                styles={ style.list }
+                style={ style.list }
                 data={ this.state.blocks }
                 keyExtractor={ this._keyExtractor }
                 renderItem={ this._renderItem }
@@ -131,6 +141,9 @@ const style = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     flex: 1
+  },
+  list: {
+    marginBottom: 50
   },
   text: {
     fontFamily: 'sans-serif',
