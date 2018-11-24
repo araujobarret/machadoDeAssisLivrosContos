@@ -3,192 +3,201 @@
 
     <item
         is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_93e8d105ea57d8707f391e2e80c08a21466b9406.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_a4ff18420a8934a9e3216240ba688ec9282bc97a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_59e9283453746613db92ae4e41aec8769264881c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_a17571c65da8621db0b2771fbdc9926998598ab2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_b3ccc2babea9a884ceb74ff86b197240a1d61adc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_7e84a58f14b03e539c66973b1348dfcc92b37959.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_af90d176669486e0814aafc7664e8b54df08ca45.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_8cb1dcf68d89b3835f6b8620276bad0ce2e75a94.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/usr/share/android-sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_80be6e874d3dbffdeec93701c629b94a3159db98.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_9e6a3b1dc939451b970b62d02c53a896a2b5d0b6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_456beae1bfbef6196546d4c957b5e9b726c256ac.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_0041ff482c22b324ea0e7411018065c2f687b38d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_f1b31295be92f01ba61bcf2b9b0bcc31ee1d17ab.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_2e262ee80768c3e8989fa7149b597ec5c36dce7f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.1_9640a6d3381c8110c4ca3bf814c691b04a5bfcc4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.4/jars/libs/infer-annotations-4.0.jar"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.55.4\jars\libs\infer-annotations-4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_100e31202db15a0c51c6790b941d29187a4c0fbd.jar" />
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_a32e1ee4a3724ab4279a7a40aac6861f48e5102e.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jar="C:\Users\carlos\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.6.0\3f9b16b774f2c36cfd86dd2053d0b3059531dacc\okhttp-urlconnection-3.6.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1_61fcec3fec656582b42c4f8c8ef3d575168bce07.jar" />
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.6.0_2f3842e6b006d4125f96efa0c331102078c55bb0.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\1.3.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_e7ea4e486c0a517743326a43c02b22b521807cd1.jar" />
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-1.3.0_e69fd8d195ba79bdd647437651e0babdc8249231.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="e31331bdf6b5952badadbfc171f04b95c55d3b16">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.55.4_455d606f4f46c46cf363df9033d73d1986e5b6f3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.soloader\soloader\0.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="8f615bca00639150c9eb6175d4b5471193f70794">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_4d32cf379f9549a7ae65078e0a6b6bbc46b34eab.jar" />
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.soloader-soloader-0.1.0_8bffb4d4f03a2bb1fb9b7744945847d76833693b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="C:\Users\carlos\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1_c473b9cfbbdbe6d921b4eba7a091f3008f1f3527.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\okhttp-3.6.0_87ec47a2545b6cb2d75e936195346bef8c84b211.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.55.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e31331bdf6b5952badadbfc171f04b95c55d3b16">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.react-react-native-0.55.4_a69412a1fa20176858a9ae1053afa62595dd15ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\okio-1.13.0_22a5a6aa782192ebab4b020656ac3f7c69b6f19f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.3.0_890083691dbb3cbbc5d75bbc6dccad1ebbcd3396.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.0\5871fb60dc68d67da54a663c3fd636a10a532948\jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\jsr305-3.0.0_f902d308da6cc948dd9c6ff4d19757e828807c2d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-drawee-1.3.0_33b4660554752644dc554fed2c5a764f57994596.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_a7a23cf322ef40447d07340622df84a00dea700e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.3.0_26ebef0170acfa8ba5c158a33e56f808cdc0d336.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-okhttp3-1.3.0_25e16fbfb7b82b83ac207edee12ec8d4e2715a22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1_1539b133c9374ce916e90421b8bdb404b323a7fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.1_ff0fd537a9b25560523c2c44f59c8f048b6190f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-1.3.0_77a44f720130a7d47f8d202a40ebc047ba8ddca1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_ed2776cdbbb90727d25a3c10d1e0bc9900fe867b.jar" />
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.0.1_a60093a219eb9e18f756a1e41520e01e0805ebf8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\MachadoDeAssis\react-native-gesture-handler\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="b0e5a81d264ceb3a077ce2efd6f082b8df2c55e1">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\MachadoDeAssis-react-native-gesture-handler-unspecified_e1d7b1db6c243128196a9d0e9a13b05cc99794d3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\exploded-aar\com.facebook.fbui.textlayoutbuilder\textlayoutbuilder\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_c6b6732a22fc421f50cfa49093aca558d0b4df91.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\javax.inject-1_f37efdfa607ef625940b91264023daa6a6abe8a0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\carlos\.gradle\caches\modules-2\files-2.1\com.facebook.fbui.textlayoutbuilder\staticlayout-proxy\1.0\f162442a19fff13995fbd51ba414d9ee05579080\staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="C:\Users\carlos\Desktop\machadoDeAssisLivrosContos\android\app\build\intermediates\pre-dexed\debug\staticlayout-proxy-1.0_de9cae511df979b89b9d09e0292e1dc6043dfcff.jar" />
     </item>
 
 </items>

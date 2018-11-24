@@ -5,7 +5,7 @@ import List from '../List/List'
 
 class Home extends React.Component {
   static navigationOptions = {
-    drawerLabel: 'Home',
+    title: 'LIVROS',
   }
 
   render() {
