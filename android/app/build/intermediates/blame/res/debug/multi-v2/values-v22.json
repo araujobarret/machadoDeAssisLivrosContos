@@ -1,10 +1,26 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
+            "outputFile": "/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\carlos\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ec9f96ba43ac80a43af3adbe73dcda5e\\res\\values-v22\\values-v22.xml",
+                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/c37acf9f545a5cdccaba84d592472b81/res/values-v22/values-v22.xml",
+                    "from": {
+                        "startLines": "2,3,4,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,553",
+                        "endLines": "2,3,8,13",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,548,896"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/root/Documentos/machadoDeAssisLivrosContos/android/C:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
+            "map": [
+                {
+                    "source": "/root/Documentos/machadoDeAssisLivrosContos/android/C:\\Users\\carlos\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ec9f96ba43ac80a43af3adbe73dcda5e\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",

@@ -1,10 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+            "outputFile": "/root/Documentos/machadoDeAssisLivrosContos/android/C:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\carlos\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ec9f96ba43ac80a43af3adbe73dcda5e\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "/root/Documentos/machadoDeAssisLivrosContos/android/C:\\Users\\carlos\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ec9f96ba43ac80a43af3adbe73dcda5e\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/c37acf9f545a5cdccaba84d592472b81/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

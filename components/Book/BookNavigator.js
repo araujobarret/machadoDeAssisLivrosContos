@@ -115,7 +115,6 @@ class BookNavigator extends React.Component {
   _keyExtractor = (item, index) => 'block_' + index;
 
   render() {
-    console.log('re-rendered')
     return (
       <View style={style.container}>
         { !this.state.isLoading ? (
