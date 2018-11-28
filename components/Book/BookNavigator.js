@@ -1,5 +1,6 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { ActivityIndicator, FlatList, Image, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { NavigationActions, StackActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 import { Books } from '../../lib/index';
@@ -7,18 +8,48 @@ import { getBooks } from '../../actions/books';
 import { getNextHeader } from '../../lib/util/util-text';
 
 class BookNavigator extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    const book = navigation.getParam('book');
+    return {
+      title: book.title,
+      headerStyle: {
+        backgroundColor: '#fefefe',
+        marginBottom: 5,
+        elevation: 2,
+      },
+      headerTintColor: '#000',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        flex: 1
+      },
+      headerLeft: (
+        <TouchableOpacity
+          style={{ marginLeft: 10, paddingVertical: 10 }}
+          onPress={() => {
+            navigation.dispatch(NavigationActions.back());
+          }}
+        >
+          <Image source={require('../../assets/imgs/cancel.png')} resizeMode="contain" style={{ width: 36 }}/>
+        </TouchableOpacity>
+      ),
+      headerRight: (
+        <View style={{ marginRight: 10 }} />
+      )
+    }
+  }
+
   constructor (props) {
     super(props);
     let book = props.navigation.state.params.book;
     Books.addBook(book);
-    const currentBlock = props.navigation.state.params.block ? props.navigation.state.params.block : 0;
+    const currentBlock = props.navigation.state.params.blockIndex ? props.navigation.state.params.blockIndex : 0;
     const navigationRes = Books.navigate(book.key, currentBlock);
     const { blocks, nextBlock, previousBlock } = navigationRes
-    console.log('navigate', navigationRes);
 
     this.state = {
       isLoading: true,
-      book,
+      bookKey: book.key,
       previousBlock,
       currentBlock,
       nextBlock,
@@ -35,7 +66,7 @@ class BookNavigator extends React.Component {
   _next () {
     this.setState({ isLoading: true}, () => {
       let currentBlock = this.state.nextBlock;
-      const navigationRes = Books.navigate(this.state.book.key, currentBlock);
+      const navigationRes = Books.navigate(this.state.bookKey, currentBlock);
       const { previousBlock, nextBlock } = navigationRes
       this.setState({
         isLoading: false,
@@ -50,7 +81,7 @@ class BookNavigator extends React.Component {
   _back () {
     this.setState({ isLoading: true}, () => {
       let currentBlock = this.state.previousBlock - 1;
-      const navigationRes = Books.navigate(this.state.book.key, currentBlock);
+      const navigationRes = Books.navigate(this.state.bookKey, currentBlock);
       const { previousBlock, nextBlock } = navigationRes
       this.setState({
         isLoading: false,

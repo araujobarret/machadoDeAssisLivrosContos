@@ -42,54 +42,11 @@ const MainStackNavigator = createStackNavigator(
   }
 );
 
-const SearchStackNavigator = createStackNavigator(
-  {
-    Search: { screen: Search }
-  },
-  {
-    initialRouteName: 'Search',
-    defaultNavigationOptions: ({ navigation }) => ({
-      headerStyle: {
-        backgroundColor: '#fff',
-        elevation: 0,
-      },
-      headerTintColor: '#000',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-        flex: 1
-      },
-      headerLeft: (
-        <TouchableOpacity
-          style={{ marginLeft: 10, paddingVertical: 10 }}
-          onPress={() => {
-            // Reset the Search component and then go back to home screen
-            navigation.dispatch(
-              StackActions.reset({
-                index: 0,
-                actions: [ NavigationActions.navigate({ routeName: 'Search' })]
-              })
-            );
-            navigation.dispatch(NavigationActions.back());
-          }}
-        >
-          <Image source={require('../assets/imgs/cancel.png')} resizeMode="contain" style={{ width: 36 }}/>
-        </TouchableOpacity>
-      ),
-      headerRight: (
-        <View style={{ marginRight: 10 }} />
-      )
-    })
-  }
-);
-
 const MainDrawerNavigator = createDrawerNavigator(
   {
-    Livros: { path: '/', screen: MainStackNavigator },
-    Buscar: { path: '/search', screen: SearchStackNavigator}
+    Main: { path: '/', screen: MainStackNavigator }
   },
   {
-    initialRouteName: 'Livros',
     contentComponent: (props) => <Drawer {...props} />,
     contentOptions: {
       activeTintColor: '#e91e63',
@@ -112,9 +69,30 @@ const MainDrawerNavigator = createDrawerNavigator(
 // const defaultGetStateForActions = MainDrawerNavigator.router.getStateForAction;
 //
 // MainDrawerNavigator.router.getStateForAction = (action, state) => {
-//   console.log('action', action);
-//   console.log('state', state);
-//   return defaultGetStateForActions(action, state);
+//   const copyAction = JSON.parse(JSON.stringify(action));
+//   const copyState = state ? JSON.parse(JSON.stringify(state)) : null;
+//   if (action.type !== 'Navigation/MARK_DRAWER_SETTLING') {
+//     console.log('action', action);
+//     console.log('state', state);
+//   }
+//   copyState ? delete copyState.routes[0].params : null;
+//   if (copyState) {
+//     if (copyState.routes[0].routes) {
+//       if (copyState.routes[0].routes.length > 1) {
+//         delete copyState.routes[0].routes[1].params
+//       }
+//     }
+//   }
+//   console.log('copyState', copyState);
+//   if (!action.specialAction) {
+//     const newState = defaultGetStateForActions(action, state);
+//     console.log('new State', newState);
+//     return newState;
+//   }
+//   state.routes[0].routes.pop();
+//   state.routes[0].index = 0;
+//   state.index = 1;
+//   return state;
 // };
 
 export const Navigator = createAppContainer(MainDrawerNavigator);

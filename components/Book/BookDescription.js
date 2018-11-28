@@ -16,10 +16,10 @@ const BookDescription = ({ navigation, book, info }) => {
 const style = StyleSheet.create({
   item: {
     height: 70,
-    backgroundColor: '#EEEEEE',
+    backgroundColor: '#fefefe',
     justifyContent: 'center',
-    elevation: 2,
-    marginBottom: 5
+    elevation: 3,
+    margin: 4
   },
   text: {
     fontFamily: 'Times New Roman',

@@ -1,12 +1,21 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 import { getShortenedSentence } from '../../lib/util/util-text';
 
-const ResultItems = ({ navigation, result, search }) => {
+const ResultItems = ({ navigation, result, search, book }) => {
   return (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => {
+        navigation.dispatch(NavigationActions.navigate({
+          routeName: 'BookNavigator',
+          params: { book, blockIndex: result.blockIndex }
+        }));
+      }}
+    >
       <Text style={styles.text}>{ getShortenedSentence(search, result.text, null, result.isMultiple) }</Text>
       <Text style={styles.subText}>{ result.title }</Text>
     </TouchableOpacity>

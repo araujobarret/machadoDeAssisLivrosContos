@@ -1,5 +1,6 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, Keyboard, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Image, FlatList, Keyboard, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 
 import SearchInput from '../Util/SearchInput';
 import ResultItems from './ResultItems';
@@ -8,6 +9,30 @@ import { getShortenedSentence } from '../../lib/util/util-text';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 class Search extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerStyle: {
+      backgroundColor: '#fff',
+      elevation: 0,
+    },
+    headerTintColor: '#000',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      textAlign: 'center',
+      flex: 1
+    },
+    headerLeft: (
+      <TouchableOpacity
+        style={{ marginLeft: 10, paddingVertical: 10 }}
+        onPress={() => navigation.dispatch(NavigationActions.back())}
+      >
+        <Image source={require('../../assets/imgs/cancel.png')} resizeMode="contain" style={{ width: 36 }}/>
+      </TouchableOpacity>
+    ),
+    headerRight: (
+      <View style={{ marginRight: 10 }} />
+    )
+  })
+
   constructor (props) {
     super(props);
     this.state = {
@@ -15,6 +40,7 @@ class Search extends React.Component {
       results: null,
       text: ''
     };
+    this.searchWord.bind(this);
   }
 
   lostFocus () {
@@ -38,18 +64,12 @@ class Search extends React.Component {
     });
   }
 
-  componentDidMount () {
-    if (this.searchInput) {
-      this.searchInput.clear();
-      this.searchInput.focus();
-    }
-  }
-
   _keyExtractor = (item, index) => '_keyResult' + index;
 
   _renderItem ({ item, index }) {
+    const book = Books.books.get(item[1].bookIndex);
     return (
-      <ResultItems navigation={this.props.navigation} result={item[1]} search={this.state.text} />
+      <ResultItems navigation={this.props.navigation} result={item[1]} search={this.state.text} book={book} />
     );
   }
 
@@ -99,7 +119,7 @@ class Search extends React.Component {
           <SearchInput
             value={this.state.text}
             ref={component => this.searchInput = component}
-            onEndEditing={this.searchWord.bind(this)}
+            onEndEditing={ () => this.searchWord()}
             onChangeText={ (text) => this.setState({ text }) }
             returnKeyType={'search'}
             label={'Buscar'}

@@ -127,9 +127,7 @@ class List extends React.Component {
   }
 
   componentDidUpdate () {
-    console.log('updated')
     if (!this.state.isLoading) {
-      console.log('not loading')
       LayoutAnimation.configureNext(animationConfigs.get(this.state.animation))
     }
   }
@@ -156,20 +154,7 @@ class List extends React.Component {
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFF'
-  },
-  item: {
-    height: 70,
-    backgroundColor: '#EEEEEE',
-    justifyContent: 'center',
-    elevation: 2,
-    marginBottom: 5
-  },
-  text: {
-    fontFamily: 'Times New Roman',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginLeft: 12
+    backgroundColor: '#ffffff'
   }
 })
 
