@@ -102,8 +102,18 @@ class BookNavigator extends React.Component {
       case 'Right':
         blockStyle = { fontWeight: 'bold',  textAlign: 'right' };
         break;
+      case 'RightEmph':
+        blockStyle = { fontWeight: 'bold',  textAlign: 'right', fontStyle: 'italic' };
+        break;
       case 'BlockQuote':
         blockStyle = { textAlign: 'center' };
+        break;
+      case 'JustifyLongSpaceRight':
+        blockStyle = { textAlign: 'justify', marginLeft: 40 };
+        break;
+      case 'JustifySpaceRight':
+        blockStyle = { textAlign: 'justify', marginLeft: 20 };
+        item.sentences = '  ' + item.sentences;
         break;
       case 'Emph':
         blockStyle = { textAlign: 'center', fontStyle: 'italic' };
