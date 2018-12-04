@@ -54,6 +54,7 @@ class BookNavigator extends React.Component {
       currentBlock,
       nextBlock,
       blocks,
+      conto: navigationRes.conto
     };
   }
 
@@ -73,7 +74,8 @@ class BookNavigator extends React.Component {
         currentBlock,
         previousBlock,
         nextBlock,
-        blocks: navigationRes.blocks
+        blocks: navigationRes.blocks,
+        conto: navigationRes.conto
       });
     });
   }
@@ -88,7 +90,8 @@ class BookNavigator extends React.Component {
         currentBlock,
         previousBlock,
         nextBlock,
-        blocks: navigationRes.blocks
+        blocks: navigationRes.blocks,
+        conto: navigationRes.conto
       });
     });
   }
@@ -97,7 +100,7 @@ class BookNavigator extends React.Component {
     let blockStyle
     switch (item.type) {
       case 'Header':
-        blockStyle = { fontWeight: 'bold',  textAlign: 'center', fontSize: 24, backgroundColor: '#FEFEFE' };
+        blockStyle = { fontWeight: 'bold',  textAlign: 'center', fontSize: 22, backgroundColor: '#FEFEFE' };
         break;
       case 'Right':
         blockStyle = { fontWeight: 'bold',  textAlign: 'right' };
@@ -152,6 +155,16 @@ class BookNavigator extends React.Component {
 
   // Blocks FlatList methods
 
+  _renderHeaderConto = () => {
+    if (this.state.conto) {
+      return (
+        <Text style={{ fontWeight: 'bold',  textAlign: 'center', fontSize: 24, backgroundColor: '#FEFEFE' }}>
+          {this.state.conto}
+        </Text>
+      )
+    }
+  }
+
   _renderItem = ({ item, index }) => (
     <View style={style.item}>
       { this._renderText(item) }
@@ -166,6 +179,7 @@ class BookNavigator extends React.Component {
         { !this.state.isLoading ? (
             <View>
               <FlatList
+                ListHeaderComponent={ this._renderHeaderConto }
                 style={ style.list }
                 data={ this.state.blocks }
                 keyExtractor={ this._keyExtractor }

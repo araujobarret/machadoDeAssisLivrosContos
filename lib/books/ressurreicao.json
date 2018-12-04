@@ -1,4 +1,7 @@
 {
+  "type": "romance",
+  "title": "Ressurreição",
+  "key": "res",
   "blocks": [
     {
       "t": "Header",

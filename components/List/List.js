@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, FlatList, View, Text, TouchableOpacity, StyleSheet, LayoutAnimation, UIManager } from 'react-native';
+import { Animated, FlatList, View, Text, TouchableOpacity, ScrollView, StyleSheet, LayoutAnimation, UIManager } from 'react-native';
 import { connect } from 'react-redux';
 
 import BookDescription from '../Book/BookDescription'
@@ -132,22 +132,45 @@ class List extends React.Component {
     }
   }
 
-  _renderItem = ({ item, index }) => (
-    <Animated.View>
-      <BookDescription info={item[1]} navigation={this.props.navigation} book={this.state.books.books.get(item[1].key)}/>
-    </Animated.View>
-  )
+  _renderItemRomance = ({ item, index }) => {
+    if (item[1].type === 'romance') {
+      return (
+        <Animated.View>
+          <BookDescription info={item[1]} navigation={this.props.navigation} book={this.state.books.books.get(item[1].key)}/>
+        </Animated.View>
+      );
+    }
+  }
+
+  _renderItemConto = ({ item, index }) => {
+    if (item[1].type === 'conto') {
+      return (
+        <Animated.View>
+          <BookDescription info={item[1]} navigation={this.props.navigation} book={this.state.books.books.get(item[1].key)}/>
+        </Animated.View>
+      );
+    }
+  }
 
   _keyExtractor = (item, index) => item[1].key;
 
   render() {
     return (
-      <FlatList
-        styles={ style.list }
-        data={ this.state.booksData }
-        keyExtractor={ this._keyExtractor }
-        renderItem={ this._renderItem }
-      />
+      <ScrollView>
+        <FlatList
+          ListHeaderComponent={<Text style={style.title}>Romances</Text>}
+          data={ this.state.booksData }
+          keyExtractor={ this._keyExtractor }
+          renderItem={ this._renderItemRomance }
+        />
+        <FlatList
+          ListHeaderComponent={<Text style={style.title}>Contos</Text>}
+          data={ this.state.booksData }
+          keyExtractor={ this._keyExtractor }
+          renderItem={ this._renderItemConto }
+        />
+        <View style={style.footer}/>
+      </ScrollView>
     )
   }
 }
@@ -155,6 +178,18 @@ class List extends React.Component {
 const style = StyleSheet.create({
   container: {
     backgroundColor: '#ffffff'
+  },
+  title: {
+    color: '#ffffff',
+    backgroundColor: '#F9812A',
+    textAlign: 'center',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginVertical: 8,
+    paddingVertical: 8
+  },
+  footer: {
+    height: 48,
   }
 })
 

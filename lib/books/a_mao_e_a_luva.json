@@ -1,4 +1,7 @@
 {
+  "type": "romance",
+  "title": "A mão e a Luva",
+  "key": "mao",
   "blocks": [
     {
       "t": "Header",
