@@ -54,14 +54,8 @@ class Search extends React.Component {
 
   searchWord () {
     this.lostFocus();
-    this.setState({ isLoading: true }, () => {
-      const results = Books.search(this.state.text);
-      console.log('results', results);
-      for (let e of results) {
-        console.log(`${e[0]} -> ${getShortenedSentence(this.state.text, e[1].text, null, e[1].isMultiple)}`)
-      }
-      this.setState({ isLoading: false, results });
-    });
+    const results = Books.search(this.state.text);      
+    this.setState({ isLoading: false, results });
   }
 
   _keyExtractor = (item, index) => '_keyResult' + index;
@@ -74,20 +68,22 @@ class Search extends React.Component {
   }
 
   _renderList () {
-    if (this.state.results === null) { return null; }
-    if (this.state.results.size > 0) {
+    if (!this.state.isLoading) {
+      if (this.state.results === null) { return null; }
+      if (this.state.results.size > 0) {
+        return (
+          <FlatList
+            styles={ styles.list }
+            data={ Array.from(this.state.results) }
+            keyExtractor={ this._keyExtractor }
+            renderItem={ this._renderItem.bind(this) }
+          />
+        );
+      }
       return (
-        <FlatList
-          styles={ styles.list }
-          data={ Array.from(this.state.results) }
-          keyExtractor={ this._keyExtractor }
-          renderItem={ this._renderItem.bind(this) }
-        />
-      );
+        <Text style={styles.noResultText}>Nenhum resultado encontrado</Text>
+      )
     }
-    return (
-      <Text style={styles.noResultText}>Nenhum resultado encontrado</Text>
-    )
   }
 
   _renderSummary () {
@@ -98,17 +94,21 @@ class Search extends React.Component {
   }
 
   _renderOverlay () {
-    return (
-      <TouchableOpacity
-        activeOpacity={1}
-        style={{backgroundColor: "#EFEFEF", opacity: 0.85, left: 0, right: 0, top: 0, bottom: 0, zIndex: 10, position: "absolute"}}
-      >
-        <ActivityIndicator size="large" color="#00ff00" style={{ flex: 1, marginTop: 30 }} />
-      </TouchableOpacity>
-    );
+    if (this.state.isLoading) {
+      console.log('overlay rendered');
+      return (
+        <TouchableOpacity
+          activeOpacity={1}
+          style={{backgroundColor: "#EFEFEF", opacity: 0.85, left: 0, right: 0, top: 0, bottom: 0, zIndex: 10, position: "absolute"}}
+        >
+          <ActivityIndicator size="large" color="#00ff00" style={{ flex: 1, marginTop: 30 }} />
+        </TouchableOpacity>
+      );
+    }
   }
 
   render () {
+    console.log('rendered');
     return (
       <TouchableOpacity
         activeOpacity={1}
@@ -119,7 +119,7 @@ class Search extends React.Component {
           <SearchInput
             value={this.state.text}
             ref={component => this.searchInput = component}
-            onEndEditing={ () => this.searchWord()}
+            onEndEditing={ () => this.setState({ isLoading: true}, () => this.searchWord()) }
             onChangeText={ (text) => this.setState({ text }) }
             returnKeyType={'search'}
             label={'Buscar'}
@@ -136,7 +136,8 @@ class Search extends React.Component {
             <Text style={styles.clearText}>limpar</Text>
           </TouchableOpacity>
           { this.state.results ? this.state.results.size > 0 ? this._renderSummary() : null : null }
-          { !this.state.isLoading ? this._renderList() : this._renderOverlay() }
+          { this._renderList() }
+          { this._renderOverlay() }
         </View>
       </TouchableOpacity>
     )

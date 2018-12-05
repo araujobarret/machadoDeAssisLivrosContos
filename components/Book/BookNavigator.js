@@ -111,6 +111,12 @@ class BookNavigator extends React.Component {
       case 'BlockQuote':
         blockStyle = { textAlign: 'center' };
         break;
+      case 'Space':
+        blockStyle = { marginLeft: 30 };
+        break;
+      case 'SpaceCenter':
+        blockStyle = { marginLeft: 30, textAlign: 'center' };
+        break;
       case 'BlockQuoteEmph':
         blockStyle = { textAlign: 'center', fontStyle: 'italic' };
         break;
@@ -134,7 +140,6 @@ class BookNavigator extends React.Component {
 
   _renderNavigatorButtons () {
     const buttons = []
-    console.log('previous', this.state.previousBlock)
     if (this.state.previousBlock) {
       buttons.push(
         <TouchableOpacity key='backBtn' onPress={() => this._back()} style={[style.button, style.buttonLeft]}>
@@ -142,7 +147,6 @@ class BookNavigator extends React.Component {
         </TouchableOpacity>
       )
     }
-    console.log('nextBlock', this.state.nextBlock)
     if (this.state.nextBlock) {
       buttons.push(
         <TouchableOpacity key='nextBtn' onPress={() => this._next()} style={[style.button, style.buttonRight]}>

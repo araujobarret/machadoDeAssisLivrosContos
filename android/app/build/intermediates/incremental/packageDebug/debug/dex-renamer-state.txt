@@ -1,4 +1,4 @@
-#Mon Nov 26 12:23:50 BRST 2018
+#Wed Dec 05 14:54:42 BRST 2018
 base.0=/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
