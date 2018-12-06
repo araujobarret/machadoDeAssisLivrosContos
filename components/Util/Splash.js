@@ -21,7 +21,7 @@ class Splash extends React.Component {
       <View style={SplashStyles.container}>
         <Image
           style={SplashStyles.imageLoading}
-          resizeMode="cover"
+          resizeMode="contain"
           onLoad={() => this.startLoading()}
           source={require('../../assets/imgs/loading.jpg')}
         />

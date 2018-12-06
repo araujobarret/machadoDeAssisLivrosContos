@@ -52,10 +52,14 @@ class Search extends React.Component {
     this.searchInput.focus();
   }
 
-  searchWord () {
+  async searchWord () {
     this.lostFocus();
-    const results = Books.search(this.state.text);      
-    this.setState({ isLoading: false, results });
+    setTimeout(() => {
+      Books.search(this.state.text)
+        .then((data) => {
+          this.setState({ isLoading: false, results: data });
+        });
+    }, 100);
   }
 
   _keyExtractor = (item, index) => '_keyResult' + index;

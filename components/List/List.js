@@ -135,9 +135,9 @@ class List extends React.Component {
   _renderItemRomance = ({ item, index }) => {
     if (item[1].type === 'romance') {
       return (
-        <Animated.View>
+        <View>
           <BookDescription info={item[1]} navigation={this.props.navigation} book={this.state.books.books.get(item[1].key)}/>
-        </Animated.View>
+        </View>
       );
     }
   }
@@ -145,9 +145,9 @@ class List extends React.Component {
   _renderItemConto = ({ item, index }) => {
     if (item[1].type === 'conto') {
       return (
-        <Animated.View>
+        <View>
           <BookDescription info={item[1]} navigation={this.props.navigation} book={this.state.books.books.get(item[1].key)}/>
-        </Animated.View>
+        </View>
       );
     }
   }

@@ -166,6 +166,8 @@ class BookNavigator extends React.Component {
           {this.state.conto}
         </Text>
       )
+    } else {
+      return null;
     }
   }
 
@@ -177,24 +179,35 @@ class BookNavigator extends React.Component {
 
   _keyExtractor = (item, index) => 'block_' + index;
 
+  _renderList () {
+    if (!this.state.isLoading) {
+      return (
+        <View>
+          <FlatList
+            ListHeaderComponent={ this._renderHeaderConto }
+            style={ style.list }
+            data={ this.state.blocks }
+            keyExtractor={ this._keyExtractor }
+            renderItem={ this._renderItem }
+          />
+          { this._renderNavigatorButtons() }
+        </View>
+      )
+    }
+  }
+
+  _renderLoading () {
+    if (this.state.isLoading) {
+      return <ActivityIndicator size="large" color="#00ff00" style={{ flex: 1, marginTop: 30 }} />
+    }
+  }
+
   render() {
+    console.log('rendering', this.state)
     return (
       <View style={style.container}>
-        { !this.state.isLoading ? (
-            <View>
-              <FlatList
-                ListHeaderComponent={ this._renderHeaderConto }
-                style={ style.list }
-                data={ this.state.blocks }
-                keyExtractor={ this._keyExtractor }
-                renderItem={ this._renderItem }
-              />
-              { this._renderNavigatorButtons() }
-            </View>
-          ) : (
-            <ActivityIndicator size="large" color="#00ff00" style={{ flex: 1, marginTop: 30 }} />
-          )
-        }
+        { this._renderList() }
+        { this._renderLoading() }
       </View>
     )
   }
