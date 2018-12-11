@@ -55,11 +55,14 @@ class Search extends React.Component {
   async searchWord () {
     this.lostFocus();
     setTimeout(() => {
+      this.now = Date.now();
       Books.search(this.state.text)
         .then((data) => {
+          this.after = Date.now();
+          console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
           this.setState({ isLoading: false, results: data });
         });
-    }, 100);
+    }, 0);
   }
 
   _keyExtractor = (item, index) => '_keyResult' + index;
