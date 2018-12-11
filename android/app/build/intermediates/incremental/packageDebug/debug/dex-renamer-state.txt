@@ -1,4 +1,0 @@
-#Tue Dec 11 20:57:34 BRST 2018
-base.0=C\:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex
