@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/root/Documentos/machadoDeAssisLivrosContos/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "C:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/c37acf9f545a5cdccaba84d592472b81/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "C:\\Users\\carlos\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ec9f96ba43ac80a43af3adbe73dcda5e\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,25 @@
             ]
         },
         {
-            "outputFile": "/root/Documentos/machadoDeAssisLivrosContos/android/C:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "C:\\root\\Documentos\\machadoDeAssisLivrosContos\\android\\C:\\Users\\carlos\\Desktop\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/root/Documentos/machadoDeAssisLivrosContos/android/C:\\Users\\carlos\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ec9f96ba43ac80a43af3adbe73dcda5e\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "C:\\root\\Documentos\\machadoDeAssisLivrosContos\\android\\C:\\Users\\carlos\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ec9f96ba43ac80a43af3adbe73dcda5e\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\root\\Documentos\\machadoDeAssisLivrosContos\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\root\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\c37acf9f545a5cdccaba84d592472b81\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

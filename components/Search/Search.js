@@ -1,12 +1,25 @@
 import React from 'react';
 import { ActivityIndicator, Image, FlatList, Keyboard, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import Realm from 'realm';
 
 import SearchInput from '../Util/SearchInput';
 import ResultItems from './ResultItems';
 import { Books } from '../../lib/index';
 import { getShortenedSentence } from '../../lib/util/util-text';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
+const BookSchema = {
+  name: 'book',
+  properties: {
+    key: 'string',
+    blockIndex: { type: 'int' },
+    title: 'string',
+    textType: 'string',
+    text: 'string',
+    type: 'string'
+  }
+}
 
 class Search extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -56,12 +69,22 @@ class Search extends React.Component {
     this.lostFocus();
     setTimeout(() => {
       this.now = Date.now();
-      Books.search(this.state.text)
-        .then((data) => {
-          this.after = Date.now();
-          console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
-          this.setState({ isLoading: false, results: data });
-        });
+      Realm.open({ schema: BookSchema, readOnly: true }).then(realm => {
+        // let books = realm.objects('book');
+        console.log('realm', realm);
+        // const query = `text CONTAINS[c] "${this.state.text}"`;
+        // let filteredBlocks = books.filtered(query);
+        // this.after = Date.now();
+        // console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
+        // console.log('FILTERED RESULTS LENGTH', filteredBlocks.length);
+        this.setState({ isLoading: false, results: [] });
+      });
+      // Books.search(this.state.text)
+      //   .then((data) => {
+      //     this.after = Date.now();
+      //     console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
+      //     this.setState({ isLoading: false, results: data });
+      //   });
     }, 0);
   }
 
