@@ -115,9 +115,9 @@ class Search extends React.Component {
   }
 
   _renderSummary () {
-    const msg = this.state.results.size > 1 ? ' resultados encontrados' : ' resultado encontrado';
+    const msg = this.state.results.length > 1 ? ' resultados encontrados' : ' resultado encontrado';
     return (
-      <Text style={styles.summaryText}>{ this.state.results.size + msg }</Text>
+      <Text style={styles.summaryText}>{ this.state.results.length + msg }</Text>
     );
   }
 
@@ -161,7 +161,7 @@ class Search extends React.Component {
           <TouchableOpacity style={styles.clearButton} onPress={this.clear.bind(this)}>
             <Text style={styles.clearText}>limpar</Text>
           </TouchableOpacity>
-          { this.state.results ? this.state.results.size > 0 ? this._renderSummary() : null : null }
+          { this.state.results ? this.state.results.length > 0 ? this._renderSummary() : null : null }
           { this._renderList() }
           { this._renderOverlay() }
         </View>
