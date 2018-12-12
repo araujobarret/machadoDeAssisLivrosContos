@@ -69,15 +69,13 @@ class Search extends React.Component {
     this.lostFocus();
     setTimeout(() => {
       this.now = Date.now();
-      Realm.open({ schema: BookSchema, readOnly: true }).then(realm => {
-        // let books = realm.objects('book');
-        console.log('realm', realm);
-        // const query = `text CONTAINS[c] "${this.state.text}"`;
-        // let filteredBlocks = books.filtered(query);
-        // this.after = Date.now();
+      Realm.open({ schema: [ BookSchema ], readOnly: true }).then(realm => {
+        let books = realm.objects('book');
+        const query = `text CONTAINS[c] "${this.state.text}"`;
+        let filteredBlocks = books.filtered(query);
+        this.after = Date.now();
         // console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
-        // console.log('FILTERED RESULTS LENGTH', filteredBlocks.length);
-        this.setState({ isLoading: false, results: [] });
+        this.setState({ isLoading: false, results: Object.values(filteredBlocks) }, () => console.log('state', this.state));
       });
       // Books.search(this.state.text)
       //   .then((data) => {
@@ -91,20 +89,20 @@ class Search extends React.Component {
   _keyExtractor = (item, index) => '_keyResult' + index;
 
   _renderItem ({ item, index }) {
-    const book = Books.books.get(item[1].bookIndex);
+    const book = Books.books.get(item.key);
     return (
-      <ResultItems navigation={this.props.navigation} result={item[1]} search={this.state.text} book={book} />
+      <ResultItems navigation={this.props.navigation} result={item} search={this.state.text} book={book} />
     );
   }
 
   _renderList () {
     if (!this.state.isLoading) {
       if (this.state.results === null) { return null; }
-      if (this.state.results.size > 0) {
+      if (this.state.results.length > 0) {
         return (
           <FlatList
             styles={ styles.list }
-            data={ Array.from(this.state.results) }
+            data={ this.state.results }
             keyExtractor={ this._keyExtractor }
             renderItem={ this._renderItem.bind(this) }
           />
@@ -125,7 +123,6 @@ class Search extends React.Component {
 
   _renderOverlay () {
     if (this.state.isLoading) {
-      console.log('overlay rendered');
       return (
         <TouchableOpacity
           activeOpacity={1}
@@ -138,7 +135,6 @@ class Search extends React.Component {
   }
 
   render () {
-    console.log('rendered');
     return (
       <TouchableOpacity
         activeOpacity={1}

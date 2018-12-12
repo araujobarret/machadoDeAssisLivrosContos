@@ -1,6 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { Provider } from 'react-redux';
+import RNFS from "react-native-fs";
 import "unorm";
 
 import { Navigator } from './navigation/Navigator';
@@ -13,6 +14,22 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true };
+  }
+
+  componentWillMount () {
+    RNFS.unlink(RNFS.DocumentDirectoryPath + "/default.realm");
+    RNFS.unlink(RNFS.DocumentDirectoryPath + "/default.realm.lock");
+    if (Platform.OS == "android") {
+      RNFS.copyFileAssets("default.realm", RNFS.DocumentDirectoryPath + "/default.realm");
+      RNFS.copyFileAssets("default.realm.lock", RNFS.DocumentDirectoryPath + "/default.realm.lock");
+    } else {
+      try {
+        RNFS.copyFile(RNFS.MainBundlePath + "/default.realm", RNFS.DocumentDirectoryPath + "/default.realm");
+        RNFS.copyFile(RNFS.MainBundlePath + "/default.realm.lock", RNFS.DocumentDirectoryPath + "/default.realm.lock");
+      } catch (e) {
+        console.log("Realm file already exists");
+      }
+    }
   }
 
   render() {
