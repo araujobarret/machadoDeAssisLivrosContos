@@ -102,6 +102,9 @@ class BookNavigator extends React.Component {
       case 'Header':
         blockStyle = { fontWeight: 'bold',  textAlign: 'center', fontSize: 22, backgroundColor: '#FEFEFE' };
         break;
+      case 'HeaderRightEmph':
+        blockStyle = { fontStyle: 'italic', textAlign: 'right' };
+        break;
       case 'Right':
         blockStyle = { fontWeight: 'bold',  textAlign: 'right' };
         break;
@@ -119,6 +122,9 @@ class BookNavigator extends React.Component {
         break;
       case 'Space':
         blockStyle = { marginLeft: 30 };
+        break;
+      case 'SpaceEmph':
+        blockStyle = { marginLeft: 30, fontStyle: 'italic' };
         break;
       case 'SpaceCenter':
         blockStyle = { marginLeft: 30, textAlign: 'center' };
