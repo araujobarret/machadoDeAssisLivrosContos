@@ -139,12 +139,29 @@ class BookNavigator extends React.Component {
       case 'Emph':
         blockStyle = { textAlign: 'center', fontStyle: 'italic' };
         break;
+      case 'ParaEmph':
+        blockStyle = { fontStyle: 'italic' };
+        break;
       default:
         item.sentences = '' + item.sentences;
     }
-    return (
-      <Text selectable={true} style={[style.text, blockStyle]}>{item.sentences}</Text>
-    )
+    if (!this.props.navigation.state.params.search) {
+      return <Text selectable={true} style={[style.text, blockStyle]}>{item.sentences}</Text>
+    } else {
+      if (item.sentences.contains(this.props.navigation.state.params.search)) {
+        let occurrences = item.sentences.split(this.props.navigation.state.params.search);
+        let blocks = [];
+        for (let i = 0; i < occurrences.length; i++) {
+          blocks.push(<Text key={ 'res_normal' + i }>{ occurrences[i] }</Text>);
+          if (i !== occurrences.length - 1) {
+            blocks.push(<Text key={ 'res' + i } style={style.highlight}>{ this.props.navigation.state.params.search }</Text>);
+          }
+        }
+        return <Text selectable={true} style={[style.text, blockStyle]}>{ blocks }</Text>
+      } else {
+        return <Text selectable={true} style={[style.text, blockStyle]}>{ item.sentences }</Text>
+      }
+    }
   }
 
   _renderNavigatorButtons () {
@@ -257,6 +274,9 @@ const style = StyleSheet.create({
   buttonLabel: {
     fontSize: 26,
     fontWeight: 'bold'
+  },
+  highlight: {
+    backgroundColor: '#ffff66'
   }
 })
 

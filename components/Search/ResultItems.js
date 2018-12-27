@@ -12,7 +12,7 @@ const ResultItems = ({ navigation, result, search, book }) => {
       onPress={() => {
         navigation.dispatch(NavigationActions.navigate({
           routeName: 'BookNavigator',
-          params: { book, blockIndex: result.blockIndex }
+          params: { book, blockIndex: result.blockIndex, search }
         }));
       }}
     >

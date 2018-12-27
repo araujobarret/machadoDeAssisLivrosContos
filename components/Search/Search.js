@@ -68,21 +68,15 @@ class Search extends React.Component {
   async searchWord () {
     this.lostFocus();
     setTimeout(() => {
-      this.now = Date.now();
+      // this.now = Date.now();
       Realm.open({ schema: [ BookSchema ], readOnly: true }).then(realm => {
         let books = realm.objects('book');
         const query = `text CONTAINS[c] "${this.state.text}"`;
         let filteredBlocks = books.filtered(query);
-        this.after = Date.now();
+        // this.after = Date.now();
         // console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
-        this.setState({ isLoading: false, results: Object.values(filteredBlocks) }, () => console.log('state', this.state));
+        this.setState({ isLoading: false, results: Object.values(filteredBlocks) });
       });
-      // Books.search(this.state.text)
-      //   .then((data) => {
-      //     this.after = Date.now();
-      //     console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
-      //     this.setState({ isLoading: false, results: data });
-      //   });
     }, 0);
   }
 
