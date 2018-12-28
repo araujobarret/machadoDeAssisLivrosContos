@@ -133,6 +133,7 @@ class List extends React.Component {
   }
 
   _renderItemRomance = ({ item, index }) => {
+    // console.log('item', item);
     if (item[1].type === 'romance') {
       return (
         <View>

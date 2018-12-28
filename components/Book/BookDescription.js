@@ -6,7 +6,7 @@ const BookDescription = ({ navigation, book, info }) => {
   return (
     <TouchableOpacity
       style={style.item}
-      onPress={() => navigation.navigate('BookNavigator', { book })}
+      onPress={() => navigation.navigate('BookChapters', { book })}
     >
       <Text style={style.text}>{ `${info.title}` }</Text>
     </TouchableOpacity>

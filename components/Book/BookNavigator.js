@@ -44,9 +44,9 @@ class BookNavigator extends React.Component {
     let book = props.navigation.state.params.book;
     Books.addBook(book);
     const currentBlock = props.navigation.state.params.blockIndex ? props.navigation.state.params.blockIndex : 0;
+    console.log('curBlock', currentBlock);
     const navigationRes = Books.navigate(book.key, currentBlock);
     const { blocks, nextBlock, previousBlock } = navigationRes
-
     this.state = {
       isLoading: true,
       bookKey: book.key,
@@ -229,7 +229,6 @@ class BookNavigator extends React.Component {
   }
 
   render() {
-    console.log('rendering', this.state)
     return (
       <View style={style.container}>
         { this._renderList() }

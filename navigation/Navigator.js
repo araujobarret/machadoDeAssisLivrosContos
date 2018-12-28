@@ -6,12 +6,14 @@ import { DrawerActions, StackActions, NavigationActions } from 'react-navigation
 import { Drawer } from './Drawer';
 import Splash from '../components/Util/Splash';
 import Home from '../components/Home/Home';
+import BookChapters from '../components/Book/BookChapters';
 import BookNavigator from '../components/Book/BookNavigator';
 import Search from '../components/Search/Search';
 
 const MainStackNavigator = createStackNavigator(
   {
     Home: { screen: Home },
+    BookChapters: { screen: BookChapters },
     BookNavigator: { screen: BookNavigator },
     Search: { screen: Search }
   },
