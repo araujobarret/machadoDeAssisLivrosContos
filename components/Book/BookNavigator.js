@@ -44,14 +44,13 @@ class BookNavigator extends React.Component {
     let book = props.navigation.state.params.book;
     Books.addBook(book);
     const currentBlock = props.navigation.state.params.blockIndex ? props.navigation.state.params.blockIndex : 0;
-    console.log('curBlock', currentBlock);
     const navigationRes = Books.navigate(book.key, currentBlock);
     const { blocks, nextBlock, previousBlock } = navigationRes
     this.state = {
       isLoading: true,
       bookKey: book.key,
       previousBlock,
-      currentBlock,
+      currentBlock: navigationRes.initialBlock,
       nextBlock,
       blocks,
       conto: navigationRes.conto
@@ -67,7 +66,7 @@ class BookNavigator extends React.Component {
   _next () {
     this.setState({ isLoading: true}, () => {
       let currentBlock = this.state.nextBlock;
-      const navigationRes = Books.navigate(this.state.bookKey, currentBlock);
+      const navigationRes = Books.navigate(this.state.bookKey, currentBlock, this.state.nextBlock);
       const { previousBlock, nextBlock } = navigationRes
       this.setState({
         isLoading: false,

@@ -14,6 +14,7 @@ function _renderDrawerItem (navigation) {
   const keys = Object.keys(navigation.router.childRouters.Main.childRouters);
   for (let i = 0; i < keys.length; i++) {
     // BookNavigator don't need to be in the menu
+    if (keys[i] == 'BookChapters') { continue; }
     if(keys[i] !== 'BookNavigator') {
       if (navigation.state.routes[0].routes[navigation.state.routes[0].index].routeName === keys[i]) {
         items.push(

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { getShortenedSentence } from '../../lib/util/util-text';
 
-const ResultItems = ({ navigation, result, search, book }) => {
+const ResultItems = ({ navigation, result, search, book, title }) => {
   return (
     <TouchableOpacity
       style={styles.item}
@@ -17,7 +17,7 @@ const ResultItems = ({ navigation, result, search, book }) => {
       }}
     >
       <Text style={styles.text}>{ getShortenedSentence(search, result.text, null, result.isMultiple) }</Text>
-      <Text style={styles.subText}>{ result.title }</Text>
+      <Text style={styles.subText}>{ title }</Text>
     </TouchableOpacity>
   );
 };

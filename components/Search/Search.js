@@ -6,7 +6,7 @@ import Realm from 'realm';
 import SearchInput from '../Util/SearchInput';
 import ResultItems from './ResultItems';
 import { Books } from '../../lib/index';
-import { getShortenedSentence } from '../../lib/util/util-text';
+import { getShortenedSentence, getSearchOrigin } from '../../lib/util/util-text';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const BookSchema = {
@@ -67,6 +67,7 @@ class Search extends React.Component {
 
   async searchWord () {
     this.lostFocus();
+    let results;
     setTimeout(() => {
       // this.now = Date.now();
       Realm.open({ schema: [ BookSchema ], readOnly: true }).then(realm => {
@@ -75,7 +76,12 @@ class Search extends React.Component {
         let filteredBlocks = books.filtered(query);
         // this.after = Date.now();
         // console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
-        this.setState({ isLoading: false, results: Object.values(filteredBlocks) });
+        results = Object.values(filteredBlocks);
+        let titles = []
+        for (let obj of results) {
+          titles.push(obj.title + '\n' + getSearchOrigin(Books.books.get(obj.key), obj.blockIndex));
+        }
+        this.setState({ isLoading: false, results, titles });
       });
     }, 0);
   }
@@ -85,7 +91,13 @@ class Search extends React.Component {
   _renderItem ({ item, index }) {
     const book = Books.books.get(item.key);
     return (
-      <ResultItems navigation={this.props.navigation} result={item} search={this.state.text} book={book} />
+      <ResultItems
+        navigation={this.props.navigation}
+        result={item}
+        search={this.state.text}
+        book={book}
+        title={this.state.titles[index]}
+      />
     );
   }
 
