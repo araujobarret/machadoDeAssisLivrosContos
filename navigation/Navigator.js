@@ -6,6 +6,7 @@ import { DrawerActions, StackActions, NavigationActions } from 'react-navigation
 import { Drawer } from './Drawer';
 import Splash from '../components/Util/Splash';
 import Home from '../components/Home/Home';
+import About from '../components/About/About';
 import BookChapters from '../components/Book/BookChapters';
 import BookNavigator from '../components/Book/BookNavigator';
 import Search from '../components/Search/Search';
@@ -15,7 +16,8 @@ const MainStackNavigator = createStackNavigator(
     Home: { screen: Home },
     BookChapters: { screen: BookChapters },
     BookNavigator: { screen: BookNavigator },
-    Search: { screen: Search }
+    Search: { screen: Search },
+    About: { screen: About }
   },
   {
     initialRouteName: 'Home',
@@ -67,34 +69,5 @@ const MainDrawerNavigator = createDrawerNavigator(
     }
   }
 );
-
-// const defaultGetStateForActions = MainDrawerNavigator.router.getStateForAction;
-//
-// MainDrawerNavigator.router.getStateForAction = (action, state) => {
-//   const copyAction = JSON.parse(JSON.stringify(action));
-//   const copyState = state ? JSON.parse(JSON.stringify(state)) : null;
-//   if (action.type !== 'Navigation/MARK_DRAWER_SETTLING') {
-//     console.log('action', action);
-//     console.log('state', state);
-//   }
-//   copyState ? delete copyState.routes[0].params : null;
-//   if (copyState) {
-//     if (copyState.routes[0].routes) {
-//       if (copyState.routes[0].routes.length > 1) {
-//         delete copyState.routes[0].routes[1].params
-//       }
-//     }
-//   }
-//   console.log('copyState', copyState);
-//   if (!action.specialAction) {
-//     const newState = defaultGetStateForActions(action, state);
-//     console.log('new State', newState);
-//     return newState;
-//   }
-//   state.routes[0].routes.pop();
-//   state.routes[0].index = 0;
-//   state.index = 1;
-//   return state;
-// };
 
 export const Navigator = createAppContainer(MainDrawerNavigator);

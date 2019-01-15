@@ -39,6 +39,7 @@ class BookChapters extends React.Component {
     super(props);
     let indexes = []
     for (let i of Object.keys(props.navigation.state.params.book.indexes)) {
+      if (isNaN(Number(i))) { continue; }
       indexes.push({
         blockIndex: Number(i),
         summary: props.navigation.state.params.book.indexes[i].summary,
@@ -52,10 +53,11 @@ class BookChapters extends React.Component {
 
   _renderItem ({ item, index }) {
     const listItem = [];
+    console.log('item', item);
     if (item.subtitle) {
-      listItem.push(
-        <Text key={index + 'subtitle'}style={style.subtitle}>{ item.subtitle }</Text>
-      );
+      if (item.subtitle !== 9999) {
+        listItem.push(<Text key={index + 'subtitle'}style={style.subtitle}>{ item.subtitle }</Text>);
+      }
     }
     listItem.push(
       <TouchableOpacity

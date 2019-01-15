@@ -6,6 +6,7 @@ function translateItem (label) {
   switch (label) {
     case 'Home': return 'LIVROS';
     case 'Search': return 'BUSCAR';
+    case 'About': return 'SOBRE';
   }
 }
 

@@ -6,6 +6,15 @@ import PropTypes from 'prop-types';
 import { getShortenedSentence } from '../../lib/util/util-text';
 
 const ResultItems = ({ navigation, result, search, book, title }) => {
+  const sentence = getShortenedSentence(search, result.text, null, result.isMultiple);
+  const occurrences = sentence.split(search);
+  let blocks = [];
+  for (let i = 0; i < occurrences.length; i++) {
+    blocks.push(<Text key={ 'res_normal' + i }>{ occurrences[i] }</Text>);
+    if (i !== occurrences.length - 1) {
+      blocks.push(<Text key={ 'res' + i } style={styles.highlight}>{ search }</Text>);
+    }
+  }
   return (
     <TouchableOpacity
       style={styles.item}
@@ -16,7 +25,7 @@ const ResultItems = ({ navigation, result, search, book, title }) => {
         }));
       }}
     >
-      <Text style={styles.text}>{ getShortenedSentence(search, result.text, null, result.isMultiple) }</Text>
+      <Text style={styles.text}>{ blocks }</Text>
       <Text style={styles.subText}>{ title }</Text>
     </TouchableOpacity>
   );
@@ -40,6 +49,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'right',
     marginRight: 16,
+  },
+  highlight: {
+    backgroundColor: '#ffff66'
   }
 });
 
