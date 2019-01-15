@@ -147,15 +147,36 @@ class BookNavigator extends React.Component {
     if (!this.props.navigation.state.params.search) {
       return <Text selectable={true} style={[style.text, blockStyle]}>{item.sentences}</Text>
     } else {
-      if (item.sentences.contains(this.props.navigation.state.params.search)) {
-        let occurrences = item.sentences.split(this.props.navigation.state.params.search);
+      if (item.sentences.toLowerCase().indexOf(this.props.navigation.state.params.search) !== -1) {
+        const sentence = item.sentences;
+        const search = this.props.navigation.state.params.search;
+        const index = sentence.toLowerCase().indexOf(search);
+        let startIndex = 0;
+        const endIndex = sentence.length;
         let blocks = [];
-        for (let i = 0; i < occurrences.length; i++) {
-          blocks.push(<Text key={ 'res_normal' + i }>{ occurrences[i] }</Text>);
-          if (i !== occurrences.length - 1) {
-            blocks.push(<Text key={ 'res' + i } style={style.highlight}>{ this.props.navigation.state.params.search }</Text>);
+        if (startIndex === index) {
+          blocks.push(<Text key={'r0'} style={style.highlight}>{ sentence.slice(startIndex, index + search.length) }</Text>);
+          blocks.push(<Text key={'r_n0'}>{ sentence.slice(index + 1, endIndex) }</Text>);
+        } else {
+          if (endIndex === index + search.length) {
+            blocks.push(<Text key={'r_n0'}>{ sentence.slice(startIndex, index) }</Text>);
+            blocks.push(<Text key={'r_0'} style={style.highlight}>{ sentence.slice(index, endIndex) }</Text>);
+          } else {
+            blocks.push(<Text key={'r_n0'}>{ sentence.slice(startIndex, index) }</Text>);
+            blocks.push(<Text key={'r0'} style={style.highlight}>{ sentence.slice(index, index + search.length) }</Text>);
+            blocks.push(<Text key={'r_n1'}>{ sentence.slice(index + search.length, endIndex) }</Text>);
           }
         }
+
+
+        // let occurrences = item.sentences.split(this.props.navigation.state.params.search);
+        // let blocks = [];
+        // for (let i = 0; i < occurrences.length; i++) {
+        //   blocks.push(<Text key={ 'res_normal' + i }>{ occurrences[i] }</Text>);
+        //   if (i !== occurrences.length - 1) {
+        //     blocks.push(<Text key={ 'res' + i } style={style.highlight}>{ this.props.navigation.state.params.search }</Text>);
+        //   }
+        // }
         return <Text selectable={true} style={[style.text, blockStyle]}>{ blocks }</Text>
       } else {
         return <Text selectable={true} style={[style.text, blockStyle]}>{ item.sentences }</Text>

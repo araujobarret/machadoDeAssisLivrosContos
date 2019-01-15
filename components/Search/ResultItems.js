@@ -7,12 +7,21 @@ import { getShortenedSentence } from '../../lib/util/util-text';
 
 const ResultItems = ({ navigation, result, search, book, title }) => {
   const sentence = getShortenedSentence(search, result.text, null, result.isMultiple);
-  const occurrences = sentence.split(search);
+  const index = sentence.toLowerCase().indexOf(search);
+  let startIndex = 0;
+  const endIndex = sentence.length;
   let blocks = [];
-  for (let i = 0; i < occurrences.length; i++) {
-    blocks.push(<Text key={ 'res_normal' + i }>{ occurrences[i] }</Text>);
-    if (i !== occurrences.length - 1) {
-      blocks.push(<Text key={ 'res' + i } style={styles.highlight}>{ search }</Text>);
+  if (startIndex === index) {
+    blocks.push(<Text key={'r0'} style={styles.highlight}>{ sentence.slice(startIndex, index + search.length) }</Text>);
+    blocks.push(<Text key={'r_n0'}>{ sentence.slice(index + 1, endIndex) }</Text>);
+  } else {
+    if (endIndex === index + search.length) {
+      blocks.push(<Text key={'r_n0'}>{ sentence.slice(startIndex, index) }</Text>);
+      blocks.push(<Text key={'r_0'} style={styles.highlight}>{ sentence.slice(index, endIndex) }</Text>);
+    } else {
+      blocks.push(<Text key={'r_n0'}>{ sentence.slice(startIndex, index) }</Text>);
+      blocks.push(<Text key={'r0'} style={styles.highlight}>{ sentence.slice(index, index + search.length) }</Text>);
+      blocks.push(<Text key={'r_n1'}>{ sentence.slice(index + search.length, endIndex) }</Text>);
     }
   }
   return (
