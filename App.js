@@ -17,11 +17,19 @@ export default class App extends React.Component {
   }
 
   componentWillMount () {
-    RNFS.unlink(RNFS.DocumentDirectoryPath + "/default.realm");
-    RNFS.unlink(RNFS.DocumentDirectoryPath + "/default.realm.lock");
+    try {
+      RNFS.unlink(RNFS.DocumentDirectoryPath + "/default.realm");
+      RNFS.unlink(RNFS.DocumentDirectoryPath + "/default.realm.lock");
+    } catch (e) {
+      console.log('unable to locate realm files to unlink');
+    }
     if (Platform.OS == "android") {
-      RNFS.copyFileAssets("default.realm", RNFS.DocumentDirectoryPath + "/default.realm");
-      RNFS.copyFileAssets("default.realm.lock", RNFS.DocumentDirectoryPath + "/default.realm.lock");
+      try {
+        RNFS.copyFileAssets("default.realm", RNFS.DocumentDirectoryPath + "/default.realm");
+        RNFS.copyFileAssets("default.realm.lock", RNFS.DocumentDirectoryPath + "/default.realm.lock");
+      } catch (e) {
+        console.log("Realm file already exists");
+      }
     } else {
       try {
         RNFS.copyFile(RNFS.MainBundlePath + "/default.realm", RNFS.DocumentDirectoryPath + "/default.realm");

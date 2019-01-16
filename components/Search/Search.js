@@ -67,23 +67,27 @@ class Search extends React.Component {
 
   async searchWord () {
     this.lostFocus();
-    let results;
-    setTimeout(() => {
-      // this.now = Date.now();
-      Realm.open({ schema: [ BookSchema ], readOnly: true }).then(realm => {
-        let books = realm.objects('book');
-        const query = `text CONTAINS[c] "${this.state.text}"`;
-        let filteredBlocks = books.filtered(query);
-        // this.after = Date.now();
-        // console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
-        results = Object.values(filteredBlocks);
-        let titles = []
-        for (let obj of results) {
-          titles.push(obj.title + '\n' + getSearchOrigin(Books.books.get(obj.key), obj.blockIndex));
-        }
-        this.setState({ isLoading: false, results, titles });
-      });
-    }, 0);
+    if (this.state.text !== '') {
+      let results;
+      setTimeout(() => {
+        // this.now = Date.now();
+        Realm.open({ schema: [ BookSchema ], readOnly: true }).then(realm => {
+          let books = realm.objects('book');
+          const query = `text CONTAINS[c] "${this.state.text}"`;
+          let filteredBlocks = books.filtered(query);
+          // this.after = Date.now();
+          // console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
+          results = Object.values(filteredBlocks);
+          let titles = []
+          for (let obj of results) {
+            titles.push(obj.title + '\n' + getSearchOrigin(Books.books.get(obj.key), obj.blockIndex));
+          }
+          this.setState({ isLoading: false, results, titles });
+        });
+      }, 0);
+    } else {
+      this.setState({ isLoading: false });
+    }
   }
 
   _keyExtractor = (item, index) => '_keyResult' + index;
@@ -151,8 +155,9 @@ class Search extends React.Component {
           <SearchInput
             value={this.state.text}
             ref={component => this.searchInput = component}
-            onEndEditing={ () => this.setState({ isLoading: true}, () => this.searchWord()) }
-            onChangeText={ (text) => this.setState({ text }) }
+            onEndEditing={() => this.setState({ isLoading: true}, () => this.searchWord())}
+            onChangeText={(text) => this.setState({ text })}
+            onSearch={() => this.setState({ isLoading: true}, () => this.searchWord())}
             returnKeyType={'search'}
             label={'Buscar'}
             iconClass={MaterialIcons}

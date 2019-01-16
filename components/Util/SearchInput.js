@@ -36,7 +36,7 @@ export default class SearchInput extends BaseInput {
   static defaultProps = {
     iconColor: 'white',
     height: 48,
-    animationDuration: 300,
+    animationDuration: 600,
     iconName: 'pencil',
   };
 
@@ -128,6 +128,30 @@ export default class SearchInput extends BaseInput {
                 },
               ],
               fontSize: 20,
+              backgroundColor: 'transparent',
+            }}
+          />
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => this.props.onSearch()}>
+          <AnimatedIcon
+            name={iconName}
+            style={{
+              color: labelStyle.color,
+              position: 'absolute',
+              bottom: 4,
+              right: focusedAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [width + PADDING, PADDING],
+              }),
+              transform: [
+                {
+                  rotate: focusedAnim.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ['-90deg', '0deg'],
+                  }),
+                },
+              ],
+              fontSize: 30,
               backgroundColor: 'transparent',
             }}
           />
