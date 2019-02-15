@@ -46,6 +46,10 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     elevation: 5,
     margin: 10,
+    shadowOffset: { width: 1, height: 2},
+    shadowColor: "#000000",
+    shadowRadius: 3,
+    shadowOpacity: 0.5
   },
   text: {
     fontFamily: 'Times New Roman',

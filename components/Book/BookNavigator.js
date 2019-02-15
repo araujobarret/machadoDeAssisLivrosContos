@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, Image, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { ActivityIndicator, FlatList, Image, View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { NavigationActions, StackActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
@@ -144,8 +144,9 @@ class BookNavigator extends React.Component {
       default:
         item.sentences = '' + item.sentences;
     }
+    const fontFamily =  Platform.OS === 'android' ? 'sans-serif' : 'Times New Roman';
     if (!this.props.navigation.state.params.search) {
-      return <Text selectable={true} style={[style.text, blockStyle]}>{item.sentences}</Text>
+      return <Text selectable={true} style={[style.text, blockStyle, { fontFamily }]}>{item.sentences}</Text>
     } else {
       if (item.sentences.toLowerCase().indexOf(this.props.navigation.state.params.search) !== -1) {
         const sentence = item.sentences;
@@ -177,9 +178,9 @@ class BookNavigator extends React.Component {
         //     blocks.push(<Text key={ 'res' + i } style={style.highlight}>{ this.props.navigation.state.params.search }</Text>);
         //   }
         // }
-        return <Text selectable={true} style={[style.text, blockStyle]}>{ blocks }</Text>
+        return <Text selectable={true} style={[style.text, blockStyle, { fontFamily }]}>{ blocks }</Text>
       } else {
-        return <Text selectable={true} style={[style.text, blockStyle]}>{ item.sentences }</Text>
+        return <Text selectable={true} style={[style.text, blockStyle, { fontFamily }]}>{ item.sentences }</Text>
       }
     }
   }

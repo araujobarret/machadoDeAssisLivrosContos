@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, Image, FlatList, Keyboard, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import RNFS from 'react-native-fs';
 import Realm from 'realm';
 
 import SearchInput from '../Util/SearchInput';
@@ -49,12 +50,25 @@ class Search extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      isLoading: false,
+      isLoading: true,
       results: null,
-      text: ''
+      text: '',
+      realm: null
     };
     this.searchWord.bind(this);
   }
+
+  componentDidMount () {
+    Realm.open({ path: RNFS.MainBundlePath + '/default.realm', schema: [ BookSchema ], readOnly: true })
+      .then(realm => {
+        console.log('real got', realm);
+        this.setState({ realm, isLoading: false });
+      })
+      .catch(e => {
+        console.log('error', e);
+        this.setState({ isLoading: false });
+      });
+  } 
 
   lostFocus () {
     Keyboard.dismiss();
@@ -70,20 +84,18 @@ class Search extends React.Component {
     if (this.state.text !== '') {
       let results;
       setTimeout(() => {
-        // this.now = Date.now();
-        Realm.open({ schema: [ BookSchema ], readOnly: true }).then(realm => {
-          let books = realm.objects('book');
-          const query = `text CONTAINS[c] "${this.state.text}"`;
-          let filteredBlocks = books.filtered(query);
-          // this.after = Date.now();
-          // console.log(`elapsed ${(this.after - this.now) / 1000}s on search`);
-          results = Object.values(filteredBlocks);
-          let titles = []
-          for (let obj of results) {
-            titles.push(obj.title + '\n' + getSearchOrigin(Books.books.get(obj.key), obj.blockIndex));
-          }
-          this.setState({ isLoading: false, results, titles });
+        let books = this.state.realm.objects('book');
+        const query = `text CONTAINS[c] "${this.state.text}"`;
+        let filteredBlocks = books.filtered(query);
+        const keys = Object.keys(filteredBlocks);
+        let titles = [];
+        let results = [];
+        keys.map(k => {
+          let obj = filteredBlocks[k];
+          results.push(obj);
+          titles.push(obj.title + '\n' + getSearchOrigin(Books.books.get(obj.key), obj.blockIndex));
         });
+        this.setState({ isLoading: false, results, titles });
       }, 0);
     } else {
       this.setState({ isLoading: false });

@@ -19,7 +19,11 @@ const style = StyleSheet.create({
     backgroundColor: '#fefefe',
     justifyContent: 'center',
     elevation: 3,
-    margin: 4
+    margin: 4,
+    shadowOffset: { width: 1, height: 2},
+    shadowColor: "#000000",
+    shadowRadius: 3,
+    shadowOpacity: 0.5
   },
   text: {
     fontFamily: 'Times New Roman',

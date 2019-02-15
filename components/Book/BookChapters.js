@@ -53,7 +53,6 @@ class BookChapters extends React.Component {
 
   _renderItem ({ item, index }) {
     const listItem = [];
-    console.log('item', item);
     if (item.subtitle) {
       if (item.subtitle !== 9999) {
         listItem.push(<Text key={index + 'subtitle'}style={style.subtitle}>{ item.subtitle }</Text>);
@@ -101,7 +100,11 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     elevation: 3,
     margin: 4,
-    paddingLeft: 12
+    paddingLeft: 12,
+    shadowOffset: { width: 1, height: 2},
+    shadowColor: "#000000",
+    shadowRadius: 3,
+    shadowOpacity: 0.5
   },
   subtitle: {
     textAlign: 'center',
