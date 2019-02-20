@@ -1,10 +1,8 @@
 import React from 'react';
 import { Animated, FlatList, View, Text, TouchableOpacity, ScrollView, StyleSheet, LayoutAnimation, UIManager } from 'react-native';
-import { connect } from 'react-redux';
 
 import BookDescription from '../Book/BookDescription'
 import { Books } from '../../lib/index';
-import { getBooks } from '../../actions/books';
 
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 
@@ -93,37 +91,10 @@ class List extends React.Component {
     super(props);
     this.state = {
       animation: AnimationType.fade,
-      books: null,
-      booksData: null,
+      books: Books,
+      booksData: Array.from(Books.books),
       isLoading: true
     };
-  }
-
-  // should check updates on books list
-  static getDerivedStateFromProps (props, state) {
-    if (props.books) {
-      if (props.books.books) {
-        if (!state.books) {
-          return {
-            books: props.books,
-            booksData: Array.from(props.books.books),
-            isLoading: false
-          }
-        }
-        if (props.books.books.size !== state.books.books.size) {
-          return {
-            books: props.books,
-            booksData: Array.from(props.books.books),
-            isLoading: false
-          }
-        }
-      }
-    }
-    return null
-  }
-
-  componentDidMount () {
-    this.props.dispatch(getBooks(Books));
   }
 
   componentDidUpdate () {
@@ -133,7 +104,6 @@ class List extends React.Component {
   }
 
   _renderItemRomance = ({ item, index }) => {
-    // console.log('item', item);
     if (item[1].type === 'romance') {
       return (
         <View>
@@ -194,8 +164,4 @@ const style = StyleSheet.create({
   }
 })
 
-const mapStateToProps = (store) => ({
-  ...store
-});
-
-export default connect(mapStateToProps)(List);
+export default List;

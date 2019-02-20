@@ -4,7 +4,6 @@ import { NavigationActions, StackActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 import { Books } from '../../lib/index';
-import { getBooks } from '../../actions/books';
 import { getNextHeader } from '../../lib/util/util-text';
 
 class BookNavigator extends React.Component {
@@ -169,15 +168,6 @@ class BookNavigator extends React.Component {
           }
         }
 
-
-        // let occurrences = item.sentences.split(this.props.navigation.state.params.search);
-        // let blocks = [];
-        // for (let i = 0; i < occurrences.length; i++) {
-        //   blocks.push(<Text key={ 'res_normal' + i }>{ occurrences[i] }</Text>);
-        //   if (i !== occurrences.length - 1) {
-        //     blocks.push(<Text key={ 'res' + i } style={style.highlight}>{ this.props.navigation.state.params.search }</Text>);
-        //   }
-        // }
         return <Text selectable={true} style={[style.text, blockStyle, { fontFamily }]}>{ blocks }</Text>
       } else {
         return <Text selectable={true} style={[style.text, blockStyle, { fontFamily }]}>{ item.sentences }</Text>

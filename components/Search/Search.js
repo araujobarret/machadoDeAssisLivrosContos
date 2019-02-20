@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Image, FlatList, Keyboard, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Image, FlatList, Keyboard, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import RNFS from 'react-native-fs';
 import Realm from 'realm';
@@ -59,16 +59,20 @@ class Search extends React.Component {
   }
 
   componentDidMount () {
-    Realm.open({ path: RNFS.MainBundlePath + '/default.realm', schema: [ BookSchema ], readOnly: true })
+    const path = Platform.OS === 'ios' ? RNFS.MainBundlePath : RNFS.DocumentDirectoryPath;
+    Realm.open({
+      path: path + '/default.realm',
+      schema: [ BookSchema ],
+      readOnly: true
+    })
       .then(realm => {
-        console.log('real got', realm);
         this.setState({ realm, isLoading: false });
       })
       .catch(e => {
         console.log('error', e);
         this.setState({ isLoading: false });
       });
-  } 
+  }
 
   lostFocus () {
     Keyboard.dismiss();
@@ -85,7 +89,7 @@ class Search extends React.Component {
       let results;
       setTimeout(() => {
         let books = this.state.realm.objects('book');
-        const query = `text CONTAINS[c] "${this.state.text}"`;
+        const query = `text CONTAINS[c] "${this.state.text.trim()}"`;
         let filteredBlocks = books.filtered(query);
         const keys = Object.keys(filteredBlocks);
         let titles = [];
