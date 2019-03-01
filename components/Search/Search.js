@@ -114,7 +114,7 @@ class Search extends React.Component {
       <ResultItems
         navigation={this.props.navigation}
         result={item}
-        search={this.state.text}
+        search={this.state.text.trim()}
         book={book}
         title={this.state.titles[index]}
       />
